@@ -13,13 +13,13 @@ let removeActiveClass = () => {
 let showLevelButton = (id) => {
     let levelAPI = `https://openapi.programming-hero.com/api/level/${id}`
     fetch(levelAPI)
-    .then(res => res.json())
-    .then(data => {
-        removeActiveClass()
-        let selectBtn = document.getElementById(`btn${id}`)
-        selectBtn.classList.add("active")
-        disPlayButtonResults(data.data)
-    })
+        .then(res => res.json())
+        .then(data => {
+            removeActiveClass()
+            let selectBtn = document.getElementById(`btn${id}`)
+            selectBtn.classList.add("active")
+            disPlayButtonResults(data.data)
+        })
 }
 // {
 //     "word": "Eager",
@@ -36,22 +36,22 @@ let showLevelButton = (id) => {
 //     ],
 //     "id": 5
 // }
-let htmlCol =(arr)=> {
+let htmlCol = (arr) => {
     let all = arr.map(el => (`<span>${el}</span>`))
-    return(all.join(" "))
+    return (all.join(" "))
 }
-let wordDeleils=(id)=>{
+let wordDeleils = (id) => {
     let url = `https://openapi.programming-hero.com/api/word/${id}`
     fetch(url)
-    .then(res => res.json())
-    .then(loadData => {
-        let data = loadData.data
-        htmlCol(data.synonyms)
-        let displayCont = document.getElementById("wordDetailsContainer")
-        displayCont.innerHTML="";
-        let divCont = document.createElement("div")
-        divCont.classList.add("space-y-4")
-        divCont.innerHTML=`
+        .then(res => res.json())
+        .then(loadData => {
+            let data = loadData.data
+            htmlCol(data.synonyms)
+            let displayCont = document.getElementById("wordDetailsContainer")
+            displayCont.innerHTML = "";
+            let divCont = document.createElement("div")
+            divCont.classList.add("space-y-4")
+            divCont.innerHTML = `
                             <h1 class="font-bold text-2xl">${data.word} (<i class="fa-solid fa-microphone"></i>: ${data.pronunciation})</h1>
                     <div class="">
                         <h1 class="font-medium text-xl">Meaning</h1>
@@ -67,10 +67,10 @@ let wordDeleils=(id)=>{
                     </div>
         `
 
-        displayCont.appendChild(divCont)
+            displayCont.appendChild(divCont)
 
-        document.getElementById("my_modal_5").showModal()
-    })
+            document.getElementById("my_modal_5").showModal()
+        })
 }
 let disPlayButtonResults = (itemdata) => {
     let showWord = document.getElementById("word_container")
