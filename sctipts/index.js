@@ -14,7 +14,6 @@ let showLevelButton = (id) => {
         .then(res => res.json())
         .then(data => {
             let selectBtn = document.getElementById(`btn${id}`)
-            console.log(selectBtn)
             selectBtn.classList.add("active")
             disPlayButtonResults(data.data)
         })
