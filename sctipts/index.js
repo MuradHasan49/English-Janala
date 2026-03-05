@@ -36,12 +36,17 @@ let showLevelButton = (id) => {
 //     ],
 //     "id": 5
 // }
+let htmlCol =(arr)=> {
+    let all = arr.map(el => (`<span>${el}</span>`))
+    return(all.join(" "))
+}
 let wordDeleils=(id)=>{
     let url = `https://openapi.programming-hero.com/api/word/${id}`
     fetch(url)
     .then(res => res.json())
     .then(loadData => {
         let data = loadData.data
+        htmlCol(data.synonyms)
         let displayCont = document.getElementById("wordDetailsContainer")
         displayCont.innerHTML="";
         let divCont = document.createElement("div")
@@ -58,9 +63,7 @@ let wordDeleils=(id)=>{
                     </div>
                     <div class="">
                         <h1 class="font-medium text-xl bangla mb-2">সমার্থক শব্দ গুলো</h1>
-                        <span class="btn">bnt-1</span>
-                        <span class="btn">bnt-1</span>
-                        <span class="btn">bnt-1</span>
+                        ${htmlCol(data.synonyms)}
                     </div>
         `
 
