@@ -12,11 +12,11 @@ let showLevelButton = (id) => {
     fetch(levelAPI)
     .then(res => res.json())
     .then(data => {
+        removeActiveClass()
         let selectBtn = document.getElementById(`btn${id}`)
         selectBtn.classList.add("active")
         disPlayButtonResults(data.data)
     })
-    removeActiveClass()
 }
 let disPlayButtonResults = (itemdata) => {
     let showWord = document.getElementById("word_container")
