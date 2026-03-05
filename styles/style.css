@@ -7,7 +7,7 @@
 .bangla{
     font-family: "Hind Siliguri", sans-serif;
 }
-.active{
+.allbtn.active{
     background-color: #422AD5 !important;
     color: white !important;
 }

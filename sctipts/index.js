@@ -8,15 +8,15 @@ let removeActiveClass = () => {
     allBTN.forEach(btn => btn.classList.remove("active"))
 }
 let showLevelButton = (id) => {
-    removeActiveClass()
     let levelAPI = `https://openapi.programming-hero.com/api/level/${id}`
     fetch(levelAPI)
-        .then(res => res.json())
-        .then(data => {
-            let selectBtn = document.getElementById(`btn${id}`)
-            selectBtn.classList.add("active")
-            disPlayButtonResults(data.data)
-        })
+    .then(res => res.json())
+    .then(data => {
+        let selectBtn = document.getElementById(`btn${id}`)
+        selectBtn.classList.add("active")
+        disPlayButtonResults(data.data)
+    })
+    removeActiveClass()
 }
 let disPlayButtonResults = (itemdata) => {
     let showWord = document.getElementById("word_container")
@@ -55,7 +55,7 @@ let displayData = (items) => {
         createDiv.innerHTML = `
        <button id="btn${item.level_no}" onclick="showLevelButton(${item.level_no})" class="btn btn-outline btn-primary allbtn"><i class="fa-solid fa-book-open-reader"></i> Lesson-${item.level_no}</button>
         `
-        showInHTML.appendChild(createDiv)
+        showInHTML.appendChild(createDiv);
     }
 }
 
