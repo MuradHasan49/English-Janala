@@ -3,17 +3,23 @@ let datafetch = () => {
         .then(res => res.json())
         .then(data => displayData(data.data))
 }
-
+let removeActiveClass = () => {
+    let allBTN = document.querySelectorAll(".allbtn")
+    allBTN.forEach(btn => btn.classList.remove("active"))
+}
 let showLevelButton = (id) => {
-    console.log(id)
+    removeActiveClass()
     let levelAPI = `https://openapi.programming-hero.com/api/level/${id}`
-    console.log(levelAPI)
     fetch(levelAPI)
         .then(res => res.json())
-        .then(data => disPlayButtonResults(data.data))
+        .then(data => {
+            let selectBtn = document.getElementById(`btn${id}`)
+            console.log(selectBtn)
+            selectBtn.classList.add("active")
+            disPlayButtonResults(data.data)
+        })
 }
 let disPlayButtonResults = (itemdata) => {
-    console.log(itemdata)
     let showWord = document.getElementById("word_container")
     showWord.innerHTML = "";
     if (itemdata.length == 0) {
@@ -27,7 +33,6 @@ let disPlayButtonResults = (itemdata) => {
         return;
     }
     itemdata.forEach(item => {
-        console.log(item)
         let newDiv = document.createElement('div')
         newDiv.innerHTML = `
                    <div class=" bg-white py-15 px-5 rounded-lg text-center space-y-4 m-4">
@@ -49,7 +54,7 @@ let displayData = (items) => {
     for (let item of items) {
         const createDiv = document.createElement("div")
         createDiv.innerHTML = `
-       <button id="btn" onclick="showLevelButton(${item.level_no})" class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open-reader"></i> Lesson-${item.level_no}</button>
+       <button id="btn${item.level_no}" onclick="showLevelButton(${item.level_no})" class="btn btn-outline btn-primary allbtn"><i class="fa-solid fa-book-open-reader"></i> Lesson-${item.level_no}</button>
         `
         showInHTML.appendChild(createDiv)
     }
