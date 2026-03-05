@@ -1,7 +1,10 @@
 let datafetch = () => {
     fetch("https://openapi.programming-hero.com/api/levels/all")
         .then(res => res.json())
-        .then(data => displayData(data.data))
+        .then(data => {
+            let dataID = data.data
+            displayData(dataID)
+        })
 }
 let removeActiveClass = () => {
     let allBTN = document.querySelectorAll(".allbtn")
@@ -16,6 +19,54 @@ let showLevelButton = (id) => {
         let selectBtn = document.getElementById(`btn${id}`)
         selectBtn.classList.add("active")
         disPlayButtonResults(data.data)
+    })
+}
+// {
+//     "word": "Eager",
+//     "meaning": "আগ্রহী",
+//     "pronunciation": "ইগার",
+//     "level": 1,
+//     "sentence": "The kids were eager to open their gifts.",
+//     "points": 1,
+//     "partsOfSpeech": "adjective",
+//     "synonyms": [
+//         "enthusiastic",
+//         "excited",
+//         "keen"
+//     ],
+//     "id": 5
+// }
+let wordDeleils=(id)=>{
+    let url = `https://openapi.programming-hero.com/api/word/${id}`
+    fetch(url)
+    .then(res => res.json())
+    .then(loadData => {
+        let data = loadData.data
+        let displayCont = document.getElementById("wordDetailsContainer")
+        displayCont.innerHTML="";
+        let divCont = document.createElement("div")
+        divCont.classList.add("space-y-4")
+        divCont.innerHTML=`
+                            <h1 class="font-bold text-2xl">${data.word} (<i class="fa-solid fa-microphone"></i>: ${data.pronunciation})</h1>
+                    <div class="">
+                        <h1 class="font-medium text-xl">Meaning</h1>
+                        <p class="text-gray-500">${data.meaning}</p>
+                    </div>
+                    <div class="">
+                        <h1 class="font-medium text-xl">Example</h1>
+                        <p class="text-gray-500">${data.sentence}</p>
+                    </div>
+                    <div class="">
+                        <h1 class="font-medium text-xl bangla mb-2">সমার্থক শব্দ গুলো</h1>
+                        <span class="btn">bnt-1</span>
+                        <span class="btn">bnt-1</span>
+                        <span class="btn">bnt-1</span>
+                    </div>
+        `
+
+        displayCont.appendChild(divCont)
+
+        document.getElementById("my_modal_5").showModal()
     })
 }
 let disPlayButtonResults = (itemdata) => {
@@ -39,7 +90,7 @@ let disPlayButtonResults = (itemdata) => {
                 <p>Meaning /Pronounciation</p>
                 <h2 class="bangla font-semibold text-[#18181B] text-2xl ">"${item.meaning ? item.meaning : "Meanig Missing"}/ ${item.pronunciation ? item.pronunciation : "Pronunciation Missing"}"</h2>
                 <div class="flex justify-between items-center ">
-                    <button  onclick="my_modal_5.showModal()" class="btn"><i class="fa-solid fa-circle-info"></i></button>
+                    <button  onclick="wordDeleils(${item.id})" class="btn"><i class="fa-solid fa-circle-info"></i></button>
                     <button class="btn"><i class="fa-solid fa-volume-high"></i></button>
                 </div>
             </div>
