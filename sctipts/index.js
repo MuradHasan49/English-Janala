@@ -39,7 +39,7 @@ let disPlayButtonResults = (itemdata) => {
                 <p>Meaning /Pronounciation</p>
                 <h2 class="bangla font-semibold text-[#18181B] text-2xl ">"${item.meaning ? item.meaning : "Meanig Missing"}/ ${item.pronunciation ? item.pronunciation : "Pronunciation Missing"}"</h2>
                 <div class="flex justify-between items-center ">
-                    <button class="btn"><i class="fa-solid fa-circle-info"></i></button>
+                    <button  onclick="my_modal_5.showModal()" class="btn"><i class="fa-solid fa-circle-info"></i></button>
                     <button class="btn"><i class="fa-solid fa-volume-high"></i></button>
                 </div>
             </div>
