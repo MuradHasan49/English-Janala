@@ -26,21 +26,6 @@ let showLevelButton = (id) => {
             disPlayButtonResults(data.data)
         })
 }
-// {
-//     "word": "Eager",
-//     "meaning": "আগ্রহী",
-//     "pronunciation": "ইগার",
-//     "level": 1,
-//     "sentence": "The kids were eager to open their gifts.",
-//     "points": 1,
-//     "partsOfSpeech": "adjective",
-//     "synonyms": [
-//         "enthusiastic",
-//         "excited",
-//         "keen"
-//     ],
-//     "id": 5
-// }
 let htmlCol = (arr) => {
     let all = arr.map(el => (`<span>${el}</span>`))
     return (all.join(" "))
