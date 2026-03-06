@@ -6,6 +6,11 @@ let datafetch = () => {
             displayData(dataID)
         })
 }
+function pronounceWord(word) {
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = "en-EN"; // English
+    window.speechSynthesis.speak(utterance);
+}
 let removeActiveClass = () => {
     let allBTN = document.querySelectorAll(".allbtn")
     allBTN.forEach(btn => btn.classList.remove("active"))
@@ -94,7 +99,7 @@ let disPlayButtonResults = (itemdata) => {
                 <h2 class="bangla font-semibold text-[#18181B] text-2xl ">"${item.meaning ? item.meaning : "Meanig Missing"}/ ${item.pronunciation ? item.pronunciation : "Pronunciation Missing"}"</h2>
                 <div class="flex justify-between items-center ">
                     <button  onclick="wordDeleils(${item.id})" class="btn"><i class="fa-solid fa-circle-info"></i></button>
-                    <button class="btn"><i class="fa-solid fa-volume-high"></i></button>
+                    <button onclick="pronounceWord('${item.word}')" class="btn"><i class="fa-solid fa-volume-high"></i></button>
                 </div>
             </div>
         `
