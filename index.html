@@ -21,38 +21,39 @@
 
 <body>
     <!--  header section-->
-    <div class="container mx-auto"></div>
     <header>
         <div class=" bg-base-100 shadow-sm">
             <div class="container mx-auto navbar">
-            <div class="navbar-start">
-                <div class="dropdown">
-                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h8m-8 6h16" />
-                        </svg>
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h8m-8 6h16" />
+                            </svg>
+                        </div>
+                        <div tabindex="-1"
+                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-3">
+                            <button class=""><i class="fa-solid fa-circle-question"></i>
+                                FAQ</button>
+                            <button class=""><i class="fa-solid fa-book-open-reader"></i>
+                                Learn</button>
+                            <button class=""><i class="fa-solid fa-right-from-bracket"></i>
+                                LogOut</button>
+                        </div>
                     </div>
-                    <div tabindex="-1"
-                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-3">
-                        <button class=""><i class="fa-solid fa-circle-question"></i>
-                            FAQ</button>
-                        <button class=""><i class="fa-solid fa-book-open-reader"></i>
-                            Learn</button>
-                        <button class=""><i class="fa-solid fa-right-from-bracket"></i>
-                            LogOut</button>
-                    </div>
+                    <a href="#" class="btn btn-ghost text-xl font-bold">English <img src="./assets/logo.png" alt="">
+                        জানালা
+                    </a>
                 </div>
-                <a href="#" class="btn btn-ghost text-xl font-bold">English <img src="./assets/logo.png" alt=""> জানালা
-                </a>
-            </div>
-            <div class="navbar-end hidden lg:flex gap-4">
-                <button class="btn btn-outline btn-primary"><i class="fa-solid fa-circle-question"></i> FAQ</button>
-                <button class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open-reader"></i> Learn</button>
-                <button class="btn btn-outline btn-primary"><i class="fa-solid fa-right-from-bracket"></i>
-                    LogOut</button>
-            </div>
+                <div class="navbar-end hidden lg:flex gap-4">
+                    <button class="btn btn-outline btn-primary"><i class="fa-solid fa-circle-question"></i> FAQ</button>
+                    <button class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open-reader"></i>
+                        Learn</button>
+                    <button class="btn btn-outline btn-primary"><i class="fa-solid fa-right-from-bracket"></i>
+                        LogOut</button>
+                </div>
             </div>
         </div>
     </header>
@@ -60,7 +61,7 @@
     <!--  banner section-->
     <section>
         <div class="bg-base-200 min-h-screen card-body">
-            <div class="flex flex-col-reverse lg:flex-row  items-center">
+            <div class="container mx-auto flex flex-col-reverse lg:flex-row  items-center">
                 <div class="">
                     <h1 class="text-3xl lg:text-5xl font-bold"><span
                             class="text-3xl lg:text-5xl font-bold text-[#00BCFF]">English</span> is
